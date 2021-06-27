@@ -83,15 +83,9 @@ runcmd(struct cmd *cmd)
       exit(1);
     }
     else if (r == 0) {
-      if (execvp(ecmd->argv[0], ecmd->argv) < 0) {
-        perror("Exec error...");
-        exit(1);
-      }
+      execvp(ecmd->argv[0], ecmd->argv);
     }
-    else {
-      int iStatus;
-      waitpid(r, &iStatus, 0);
-    }
+    
     //fprintf(stderr, "exec nao implementado\n");
     /* MARK END task2 */
     break;
@@ -102,7 +96,11 @@ runcmd(struct cmd *cmd)
     /* MARK START task3
      * TAREFA3: Implemente codigo abaixo para executar
      * comando com redirecionamento. */
-    fprintf(stderr, "redir nao implementado\n");
+
+    close(rcmd->fd);
+    int arquivo = open(rcmd->file, rcmd->mode, 0666); // 0666 é o modo de permissão para permitir ler e escrever
+
+    //fprintf(stderr, "redir nao implementado\n");
     /* MARK END task3 */
     runcmd(rcmd->cmd);
     break;
@@ -112,7 +110,35 @@ runcmd(struct cmd *cmd)
     /* MARK START task4
      * TAREFA4: Implemente codigo abaixo para executar
      * comando com pipes. */
-    fprintf(stderr, "pipe nao implementado\n");
+
+    pipe(p);
+    r = fork1();
+
+    if (p < 0) {
+      perror("Erro no pipe!");
+      exit(1);
+    }
+
+    if (r < 0) {
+      perror("Erro no fork!");
+      exit(1);
+    }
+    else if (r == 0) {
+      dup2(p[1], 1);
+      //close(p[0]);
+      //close(p[1]);
+      //wait(NULL);
+      runcmd(pcmd->left);
+      //exit(1);
+    }
+    else {
+      dup2(p[0], 0);
+      close(p[0]);
+      close(p[1]);
+      runcmd(pcmd->right);
+      exit(1);
+    }
+    //fprintf(stderr, "pipe nao implementado\n");
     /* MARK END task4 */
     break;
   }    
