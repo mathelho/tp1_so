@@ -79,13 +79,13 @@ runcmd(struct cmd *cmd)
     r = fork1();
 
     if (r < 0) {
-      perror("Fork error...");
+      perror("Fork error!");
       exit(1);
     }
     else if (r == 0) {
       execvp(ecmd->argv[0], ecmd->argv);
     }
-    
+
     //fprintf(stderr, "exec nao implementado\n");
     /* MARK END task2 */
     break;
@@ -98,7 +98,7 @@ runcmd(struct cmd *cmd)
      * comando com redirecionamento. */
 
     close(rcmd->fd);
-    int arquivo = open(rcmd->file, rcmd->mode, 0666); // 0666 é o modo de permissão para permitir ler e escrever
+    rcmd->fd = open(rcmd->file, rcmd->mode, 0666); // 0666 é o modo de permissão para permitir ler e escrever
 
     //fprintf(stderr, "redir nao implementado\n");
     /* MARK END task3 */
@@ -125,9 +125,6 @@ runcmd(struct cmd *cmd)
     }
     else if (r == 0) {
       dup2(p[1], 1);
-      //close(p[0]);
-      //close(p[1]);
-      //wait(NULL);
       runcmd(pcmd->left);
       //exit(1);
     }
@@ -136,7 +133,7 @@ runcmd(struct cmd *cmd)
       close(p[0]);
       close(p[1]);
       runcmd(pcmd->right);
-      exit(1);
+      //exit(1);
     }
     //fprintf(stderr, "pipe nao implementado\n");
     /* MARK END task4 */
