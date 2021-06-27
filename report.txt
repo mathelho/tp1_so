@@ -18,9 +18,20 @@ Celso Junio Simões de Oliveira Santos celso.juniodon@gmail.com 50%
 
 3. Referências bibliográficas
 
-(Adicione aqui as referências bibliográficas. ) - Apagar Depois
 1 - https://guialinux.uniriotec.br/ - Para recapitular alguns comandos do Linux.
-2 - 
+2 - https://linux.die.net/man/2/fork - Fork
+3 - https://linux.die.net/man/3/execvp - Execvp
+4 - https://linux.die.net/man/3/explain_execvp - Execvp
+5 - https://man7.org/linux/man-pages/man3/exec.3.html - Exec
+6 - https://linux.die.net/man/2/close - Close
+7 - https://man7.org/linux/man-pages/man2/close.2.html - Close
+8 - https://man7.org/linux/man-pages/man2/open.2.html - Open
+9 - https://linux.die.net/man/3/open - Open
+10 - 
+11 - 
+12 - 
+
+
 
 4. Estruturas de dados
 
@@ -35,6 +46,6 @@ TAREFA/TASK 2: Utilizamos um fork (na variável 'r') inicialmente, para fazer um
 No caso do erro, printamos o "fork error", indicando tal; e no caso do sucesso, chamamos o execvp, que executará o comando chamado.
 
 
-TAREFA/TASK 3: Fechamos o 'rcmd->fd' (sendo o fd o Nº do descritor de arquivo usado) atual com um "close" para que ele não se refira a nenhum arquivo e possa ser assim, reutilizado no passo seguinte sem probloemas. Abrimos então 
+TAREFA/TASK 3: Fechamos o 'rcmd->fd' (sendo o fd o Nº do descritor de arquivo usado) atual com um "close" para que ele não se refira a nenhum arquivo e possa ser também reutilizado sem probloemas. Abrimos então o arquivo utilizando um open, apontando o arquivo para E/S, o modo e utilizando o código O_RDWR que é para primitir a leitura e escrita. 
 
 TAREFA/TASK 4: 

@@ -104,12 +104,15 @@ runcmd(struct cmd *cmd)
      * comando com redirecionamento. */
 
     close(rcmd->fd);
-    rcmd->fd = open(rcmd->file, rcmd->mode, 0666); // 0666 é o modo de permissão para permitir ler e escrever
+    open(rcmd->file, rcmd->mode, O_RDWR); // O_RDWR é o modo de permissão para ler e escrever
     
-    // Refs:
+    // Refs close:
     // 1 - https://linux.die.net/man/2/close
     // 2 - https://man7.org/linux/man-pages/man2/close.2.html
-    // OBS.: Curiosamente esses dois sites apresentam a mesma descrição, talvez seja por ambos retirarem suas informações do mesmo manual. 
+    // OBS.: Curiosamente esses dois sites apresentam a mesma descrição, talvez seja por ambos retirarem suas informações do mesmo manual.
+    // Refs open:
+    // 1 - https://man7.org/linux/man-pages/man2/open.2.html
+    // 2 - https://linux.die.net/man/3/open
 
     //Implementado, Funcional
     /* MARK END task3 */
