@@ -27,10 +27,14 @@ Celso Junio Simões de Oliveira Santos celso.juniodon@gmail.com 50%
 (Descreva e justifique as estruturas de dados e algoritmos utilizados
 em sua solução.) - Apagar Depois
 
-TAREFA/TASK 1: Resposta bno Código conforme solitado.
+TAREFA/TASK 1: Resposta no Código conforme solitado. Resp:
+O 1º if é necessário para a verificação do comand: Verifica se é um 'cd ', que é um comando para explorar diretórios; e se for, ele executa a linha seguinte e o segundo if.
+    O 2º if é executado caso não seja fornecido um caminho/diretório após o cd ou o shell não foi capaz de encontra-lo, logo, uma mensagem de erro é diparada, indicando tal: "Diretório não encontrado". Assim, o 1º If é necessário para verificação, e o 2º é necessário para indicar erros.
 
-TAREFA/TASK 2: 
+TAREFA/TASK 2: Utilizamos um fork (na variável 'r') inicialmente, para fazer uma pequena prevenção de erros, e também para familiarizarmos com o uso da mesma, já que ela seria usada na TAREFA/TASK 4. Tal fork irá criar um processo "filho", derivado do processo "pai", no qual será guardado na variável 'r' um valor inteiro que será: 0 - no caso de sucesso (criando um processo filho), ou -1 - no caso de fracasso (simplificamos com 'r < 0') não criando um processo filho.
+No caso do erro, printamos o "fork error", indicando tal; e no caso do sucesso, chamamos o execvp, que executará o comando chamado.
 
-TAREFA/TASK 3: 
+
+TAREFA/TASK 3: Fechamos o 'rcmd->fd' (sendo o fd o Nº do descritor de arquivo usado) atual com um "close" para que ele não se refira a nenhum arquivo e possa ser assim, reutilizado no passo seguinte sem probloemas. Abrimos então 
 
 TAREFA/TASK 4: 

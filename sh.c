@@ -76,17 +76,23 @@ runcmd(struct cmd *cmd)
      * TAREFA2: Implemente codigo abaixo para executar
      * comandos simples. */
 
-    r = fork1();
+    // Ref: https://linux.die.net/man/2/fork
+    // Familiarização/Utilização do fork baseado na explicação da referencia do linux.die
+    r = fork1(); // Utilizado para prevenção de erro
 
-    if (r < 0) {
-      perror("Fork error!");
-      exit(1);
+    if (r < 0) { // Indicação do fracasso do fork
+      perror("fork error!");
+      exit(1); // Termina a chamada
     }
-    else if (r == 0) {
+    else if (r == 0) { // O 0 indica o sucesso do fork
       execvp(ecmd->argv[0], ecmd->argv);
+      // Refs sobre execvp:
+      //1 - https://linux.die.net/man/3/execvp
+      //2 - https://linux.die.net/man/3/explain_execvp
+      //3 - https://man7.org/linux/man-pages/man3/exec.3.html
     }
 
-    //fprintf(stderr, "exec nao implementado\n");
+    // Implementado, Funcional
     /* MARK END task2 */
     break;
 
@@ -99,8 +105,13 @@ runcmd(struct cmd *cmd)
 
     close(rcmd->fd);
     rcmd->fd = open(rcmd->file, rcmd->mode, 0666); // 0666 é o modo de permissão para permitir ler e escrever
+    
+    // Refs:
+    // 1 - https://linux.die.net/man/2/close
+    // 2 - https://man7.org/linux/man-pages/man2/close.2.html
+    // OBS.: Curiosamente esses dois sites apresentam a mesma descrição, talvez seja por ambos retirarem suas informações do mesmo manual. 
 
-    //fprintf(stderr, "redir nao implementado\n");
+    //Implementado, Funcional
     /* MARK END task3 */
     runcmd(rcmd->cmd);
     break;
@@ -172,9 +183,9 @@ main(void)
         fprintf(stderr, "Diretório não encontrado\n");
       continue;
     }
-    /* cd é um comando para explorar diretórios.
-    se não for fornecido um caminho/diretório após o cd ou algum não existente, 
-    o shell não será capaz de encontra-lo e irá disparar a mensagem acima.*/
+    /* Resposta Tarefa/Task1:
+    O 1º if é necessário para a verificação do comand: Verifica se é um 'cd ', que é um comando para explorar diretórios; e se for, ele executa a linha seguinte e o segundo if.
+    O 2º if é executado caso não seja fornecido um caminho/diretório após o cd ou o shell não foi capaz de encontra-lo, logo, uma mensagem de erro é diparada, indicando tal: "Diretório não encontrado". Assim, o 1º If é necessário para verificação, e o 2º é necessário para indicar erros.
     /* MARK END task1 */
 
     if(fork1() == 0)
