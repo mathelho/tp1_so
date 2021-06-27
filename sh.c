@@ -151,7 +151,7 @@ main(void)
     }
     /* cd é um comando para explorar diretórios.
     se não for fornecido um caminho/diretório após o cd ou algum não existente, 
-    o shell não será capaz de encontrá=lo e irá disparar a mensagem acima.*/
+    o shell não será capaz de encontra-lo e irá disparar a mensagem acima.*/
     /* MARK END task1 */
 
     if(fork1() == 0)

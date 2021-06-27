@@ -9,19 +9,28 @@ material da Internet nem obtiveram código de terceiros.
 
 2. Membros do grupo e alocação de esforço
 
-Preencha as linhas abaixo com o nome e o e-mail dos integrantes do
+(Preencha as linhas abaixo com o nome e o e-mail dos integrantes do
 grupo.  Substitua XX pela contribuição de cada membro do grupo no
-desenvolvimento do trabalho.
+desenvolvimento do trabalho.) - Apagar Depois
 
-Nome <email@domain.br> XX%
-Nome <email@domain.br> XX%
-Nome <email@domain.br> XX%
+Matheus Ferreira Coelho matheus.coelho789@gmail.com 50%
+Celso Junio Simões de Oliveira Santos celso.juniodon@gmail.com 50%
 
 3. Referências bibliográficas
 
-Adicione aqui as referências bibliográficas.
+(Adicione aqui as referências bibliográficas. ) - Apagar Depois
+1 - https://guialinux.uniriotec.br/ - Para recapitular alguns comandos do Linux.
+2 - 
 
 4. Estruturas de dados
 
-Descreva e justifique as estruturas de dados e algoritmos utilizados
-em sua solução.
+(Descreva e justifique as estruturas de dados e algoritmos utilizados
+em sua solução.) - Apagar Depois
+
+TAREFA/TASK 1: Resposta bno Código conforme solitado.
+
+TAREFA/TASK 2: 
+
+TAREFA/TASK 3: 
+
+TAREFA/TASK 4: 
