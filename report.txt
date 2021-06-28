@@ -28,10 +28,6 @@ Celso Junio Simões de Oliveira Santos celso.juniodon@gmail.com 50%
 8 - https://man7.org/linux/man-pages/man2/open.2.html - Open
 9 - https://linux.die.net/man/3/open - Open
 10 - https://linux.die.net/man/2/dup2 - Dup2
-11 - 
-12 - 
-
-
 
 4. Estruturas de dados
 
