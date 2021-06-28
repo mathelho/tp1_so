@@ -27,7 +27,7 @@ Celso Junio Simões de Oliveira Santos celso.juniodon@gmail.com 50%
 7 - https://man7.org/linux/man-pages/man2/close.2.html - Close
 8 - https://man7.org/linux/man-pages/man2/open.2.html - Open
 9 - https://linux.die.net/man/3/open - Open
-10 - 
+10 - https://linux.die.net/man/2/dup2 - Dup2
 11 - 
 12 - 
 
@@ -48,4 +48,4 @@ No caso do erro, printamos o "fork error", indicando tal; e no caso do sucesso, 
 
 TAREFA/TASK 3: Fechamos o 'rcmd->fd' (sendo o fd o Nº do descritor de arquivo usado) atual com um "close" para que ele não se refira a nenhum arquivo e possa ser também reutilizado sem probloemas. Abrimos então o arquivo utilizando um open, apontando o arquivo para E/S, o modo e utilizando o código O_RDWR que é para primitir a leitura e escrita. 
 
-TAREFA/TASK 4: 
+TAREFA/TASK 4: Incialmente, chamamos o pipe(p) e o fork(r) e checamos seus valores, para garantir o sucesso de ambas operações. Se o resultado armazenado em qualquer uma das variáveis for < 0 (menor que zero, indicando algum erro ou falha no processo), realizamos a respectiva impressao de erro, e terminamos a chamada com um exit(1). Caso 'p' seja >= 0 e r = 0, chamamos o dup2, que faz um novo fd (file descriptor) a partir do antigo fd, se o antigo fd é válido e o novo não possui o mesmo valor do antigo. Após criar tal cópia com o dup2 na posição p[1], chamamos a execução do pipe a esquerda (processo filho). Por fim, caso não tenha caído em nenhum dos condicionais anteriores e p seja >= 0, chamamos o dup2, dessa vez para a posição p[0], fechamos os descritores p[0] e p[1], e executamos o pipe a direita, com um runcmd.

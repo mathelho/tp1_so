@@ -139,17 +139,16 @@ runcmd(struct cmd *cmd)
     }
     else if (r == 0) {
       dup2(p[1], 1);
+      // Ref: https://linux.die.net/man/2/dup2
       runcmd(pcmd->left);
-      //exit(1);
     }
     else {
       dup2(p[0], 0);
       close(p[0]);
       close(p[1]);
       runcmd(pcmd->right);
-      //exit(1);
     }
-    //fprintf(stderr, "pipe nao implementado\n");
+    // Implementada, Funcional
     /* MARK END task4 */
     break;
   }    
@@ -188,7 +187,7 @@ main(void)
     }
     /* Resposta Tarefa/Task1:
     O 1º if é necessário para a verificação do comand: Verifica se é um 'cd ', que é um comando para explorar diretórios; e se for, ele executa a linha seguinte e o segundo if.
-    O 2º if é executado caso não seja fornecido um caminho/diretório após o cd ou o shell não foi capaz de encontra-lo, logo, uma mensagem de erro é diparada, indicando tal: "Diretório não encontrado". Assim, o 1º If é necessário para verificação, e o 2º é necessário para indicar erros.
+    O 2º if é executado caso não seja fornecido um caminho/diretório após o cd ou o shell não foi capaz de encontra-lo, logo, uma mensagem de erro é diparada, indicando tal: "Diretório não encontrado". Assim, o 1º If é necessário para verificação, e o 2º é necessário para indicar erros. */
     /* MARK END task1 */
 
     if(fork1() == 0)
